@@ -49,6 +49,6 @@ export interface CoachIntake {
 export interface EventLog {
   id: string
   event_type: string
-  payload: Record<string, any>
+  payload: Record<string, unknown>
   created_at: string
 }

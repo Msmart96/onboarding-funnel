@@ -7,7 +7,12 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 
 export default function PaymentPage() {
-  const [customerData, setCustomerData] = useState<any>(null)
+  const [customerData, setCustomerData] = useState<{
+    name: string;
+    email: string;
+    intake_id?: string;
+    [key: string]: unknown;
+  } | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
@@ -96,12 +101,12 @@ export default function PaymentPage() {
             </motion.div>
 
             <h1 className="text-4xl lg:text-5xl font-bold text-gradient">
-              Perfect! You're All Set
+              Perfect! You&apos;re All Set
             </h1>
 
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Thank you for completing the questionnaire, <span className="text-foreground font-semibold">{customerData.name}</span>.
-              Now let's finalize your premium onboarding setup.
+              Now let&apos;s finalize your premium onboarding setup.
             </p>
           </div>
 

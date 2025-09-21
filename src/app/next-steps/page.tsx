@@ -252,7 +252,7 @@ export default function NextStepsPage() {
               Watch: How Your Onboarding Will Work
             </h3>
             <p className="text-muted-foreground mb-6">
-              See exactly how we'll transform your client onboarding experience
+              See exactly how we&apos;ll transform your client onboarding experience
             </p>
 
             {/* Video Placeholder */}

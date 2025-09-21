@@ -9,9 +9,7 @@ import {
   ArrowRight,
   ArrowLeft,
   CheckCircle,
-  User,
   Building,
-  Mail,
   Phone,
   Link as LinkIcon,
   FileText,
@@ -175,7 +173,11 @@ const questions = [
 export default function TypeformQuestionnaire() {
   const [currentStep, setCurrentStep] = useState(0)
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [initialData, setInitialData] = useState<any>(null)
+  const [initialData, setInitialData] = useState<{
+    name?: string;
+    email?: string;
+    [key: string]: unknown;
+  } | null>(null)
   const [filteredQuestions, setFilteredQuestions] = useState(questions)
 
   const {
@@ -340,7 +342,7 @@ export default function TypeformQuestionnaire() {
           {question.type === 'radio' && question.options && (
             <RadioGroup
               value={watchedValues[fieldName] as string}
-              onValueChange={(value) => setValue(fieldName, value as any)}
+              onValueChange={(value) => setValue(fieldName, value as string)}
               className="space-y-3"
             >
               {question.options.map((option) => (
@@ -469,7 +471,7 @@ export default function TypeformQuestionnaire() {
               <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
               <h1 className="text-3xl font-bold">All set! 🎉</h1>
               <p className="text-lg text-muted-foreground">
-                Your onboarding setup is complete. We'll be in touch within 24 hours.
+                Your onboarding setup is complete. We&apos;ll be in touch within 24 hours.
               </p>
             </motion.div>
           )}

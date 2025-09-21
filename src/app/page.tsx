@@ -1,10 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Star, CheckCircle, Zap, Users, Clock } from 'lucide-react'
+import { CheckCircle, Zap, Users, Clock } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import CheckoutButton from '@/components/checkout-button'
 import { OnboardProHero } from '@/components/ui/futuristic-hero-section'
 
@@ -158,7 +157,7 @@ export default function LandingPage() {
             </h2>
 
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join 500+ coaches who've eliminated onboarding headaches and created premium experiences.
+              Join 500+ coaches who&apos;ve eliminated onboarding headaches and created premium experiences.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

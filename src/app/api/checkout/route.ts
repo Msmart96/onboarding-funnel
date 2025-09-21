@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     })
 
     // Store initial payment record in database
-    const { data: paymentRecord, error: dbError } = await supabase
+    const { error: dbError } = await supabase
       .from('coach_payments')
       .insert([
         {

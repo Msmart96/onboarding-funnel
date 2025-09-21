@@ -34,8 +34,7 @@ export default function CheckoutButton({
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
-    reset
+    formState: { errors, isValid }
   } = useForm<CheckoutForm>({
     resolver: zodResolver(checkoutSchema),
     mode: 'onChange',
@@ -132,7 +131,7 @@ export default function CheckoutButton({
           </Button>
 
           <p className="text-xs text-gray-300 text-center">
-            Next, we'll gather details about your program to customize your onboarding experience.
+            Next, we&apos;ll gather details about your program to customize your onboarding experience.
           </p>
         </form>
       </DialogContent>

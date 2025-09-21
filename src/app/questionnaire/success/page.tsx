@@ -106,7 +106,7 @@ export default function QuestionnaireSuccessPage() {
               <div className="bg-muted/20 rounded-lg p-6">
                 <h3 className="font-semibold mb-4 flex items-center gap-2">
                   <Mail className="w-5 h-5 text-primary" />
-                  You'll Receive
+                  You&apos;ll Receive
                 </h3>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-2">
