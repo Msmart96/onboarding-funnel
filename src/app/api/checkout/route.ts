@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getStripe, STRIPE_CONFIG } from '@/lib/stripe'
-import { supabase } from '@/lib/supabase'
+import { getSupabaseClient } from '@/lib/supabase'
 
 export async function POST(request: NextRequest) {
   try {
@@ -56,6 +56,7 @@ export async function POST(request: NextRequest) {
     })
 
     // Store initial payment record in database
+    const supabase = getSupabaseClient()
     const { error: dbError } = await supabase
       .from('coach_payments')
       .insert([

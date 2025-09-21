@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { headers } from 'next/headers'
 import { getStripe } from '@/lib/stripe'
-import { supabase } from '@/lib/supabase'
+import { getSupabaseClient } from '@/lib/supabase'
 
 export async function POST(request: NextRequest) {
   try {
@@ -39,6 +39,7 @@ export async function POST(request: NextRequest) {
         const session = event.data.object
 
         // Update payment status in database
+        const supabase = getSupabaseClient()
         const { error: updateError } = await supabase
           .from('coach_payments')
           .update({
@@ -73,6 +74,7 @@ export async function POST(request: NextRequest) {
         const session = event.data.object
 
         // Update payment status to cancelled
+        const supabase = getSupabaseClient()
         await supabase
           .from('coach_payments')
           .update({
@@ -103,6 +105,7 @@ export async function POST(request: NextRequest) {
         })
 
         if (sessions.data.length > 0) {
+          const supabase = getSupabaseClient()
           await supabase
             .from('coach_payments')
             .update({
