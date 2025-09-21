@@ -294,7 +294,8 @@ export default function TypeformQuestionnaire() {
 
     } catch (error) {
       console.error('Submission error:', error)
-      alert(`Something went wrong: ${error.message}. Please try again.`)
+      const message = error instanceof Error ? error.message : 'Unexpected error'
+      alert(`Something went wrong: ${message}. Please try again.`)
     } finally {
       setIsSubmitting(false)
     }
