@@ -1,13 +1,25 @@
 import Stripe from 'stripe'
 
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error('Missing STRIPE_SECRET_KEY environment variable')
-}
+let stripeClient: Stripe | null = null
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2025-08-27.basil',
-  typescript: true,
-})
+export function getStripe(): Stripe {
+  if (stripeClient) {
+    return stripeClient
+  }
+
+  const secretKey = process.env.STRIPE_SECRET_KEY
+
+  if (!secretKey) {
+    throw new Error('Missing STRIPE_SECRET_KEY environment variable')
+  }
+
+  stripeClient = new Stripe(secretKey, {
+    apiVersion: '2025-08-27.basil',
+    typescript: true,
+  })
+
+  return stripeClient
+}
 
 // Stripe configuration constants
 export const STRIPE_CONFIG = {

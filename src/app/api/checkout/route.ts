@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { stripe, STRIPE_CONFIG } from '@/lib/stripe'
+import { getStripe, STRIPE_CONFIG } from '@/lib/stripe'
 import { supabase } from '@/lib/supabase'
 
 export async function POST(request: NextRequest) {
   try {
+    const stripe = getStripe()
     const body = await request.json()
     const { email, name, businessName } = body
 
@@ -110,6 +111,7 @@ export async function POST(request: NextRequest) {
 // Handle checkout session retrieval
 export async function GET(request: NextRequest) {
   try {
+    const stripe = getStripe()
     const url = new URL(request.url)
     const session_id = url.searchParams.get('session_id')
 
