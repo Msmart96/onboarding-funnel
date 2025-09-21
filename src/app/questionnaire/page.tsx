@@ -173,11 +173,6 @@ const questions = [
 export default function TypeformQuestionnaire() {
   const [currentStep, setCurrentStep] = useState(0)
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [initialData, setInitialData] = useState<{
-    name?: string;
-    email?: string;
-    [key: string]: unknown;
-  } | null>(null)
   const [filteredQuestions, setFilteredQuestions] = useState(questions)
 
   const {
@@ -197,7 +192,6 @@ export default function TypeformQuestionnaire() {
     const formData = localStorage.getItem('onboardingFormData')
     if (formData) {
       const data = JSON.parse(formData)
-      setInitialData(data)
 
       // Pre-populate form with initial data
       if (data.name) setValue('fullName', data.name)

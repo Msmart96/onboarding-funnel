@@ -10,6 +10,7 @@ export default function PaymentPage() {
   const [customerData, setCustomerData] = useState<{
     name: string;
     email: string;
+    businessName?: string;
     intake_id?: string;
     [key: string]: unknown;
   } | null>(null)
@@ -161,7 +162,7 @@ export default function PaymentPage() {
                 <div className="bg-muted/20 rounded-lg p-4 space-y-2">
                   <h3 className="font-semibold text-foreground">Setup Details:</h3>
                   <div className="text-sm text-muted-foreground space-y-1">
-                    <div><span className="font-medium">Business:</span> {customerData.businessName}</div>
+                    <div><span className="font-medium">Business:</span> {customerData.businessName || 'Not specified'}</div>
                     <div><span className="font-medium">Email:</span> {customerData.email}</div>
                     <div><span className="font-medium">Contact:</span> {customerData.name}</div>
                   </div>
