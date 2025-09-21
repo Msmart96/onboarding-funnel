@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.5rem;
+
+  /* Chad CN Luxury Color Palette - HSL format for Tailwind */
+  --background: 225 82% 8%; /* Deep midnight navy */
+  --foreground: 226 33% 91%; /* Cool mist gray */
+  --card: 0 0% 100% / 0.06; /* Glass surface */
+  --card-foreground: 226 33% 91%;
+  --popover: 225 82% 8%;
+  --popover-foreground: 226 33% 91%;
+
+  /* Primary: Electric violet */
+  --primary: 255 85% 58%; /* Primary violet */
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary and muted tones */
+  --secondary: 0 0% 100% / 0.08;
+  --secondary-foreground: 226 33% 91%;
+  --muted: 0 0% 100% / 0.04;
+  --muted-foreground: 226 33% 91% / 0.7;
+
+  /* Accent - warm orange */
+  --accent: 33 100% 73%;
+  --accent-foreground: 225 82% 8%;
+
+  /* UI elements */
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 100% / 0.1;
+  --input: 0 0% 100% / 0.08;
+  --ring: 255 85% 58%;
+
+  /* Charts using luxury palette */
+  --chart-1: 255 85% 58%;
+  --chart-2: 277 87% 67%;
+  --chart-3: 33 100% 73%;
+  --chart-4: 226 33% 91%;
+  --chart-5: 225 82% 8%;
+}
+
+.dark {
+  /* Dark theme uses the same luxury palette - already optimized for dark */
+  --background: #020824;
+  --foreground: #E5E8F0;
+  --card: rgba(255, 255, 255, 0.08);
+  --card-foreground: #E5E8F0;
+  --popover: #020824;
+  --popover-foreground: #E5E8F0;
+  --primary: #6B2FFB;
+  --primary-foreground: #FFFFFF;
+  --secondary: rgba(255, 255, 255, 0.1);
+  --secondary-foreground: #E5E8F0;
+  --muted: rgba(255, 255, 255, 0.06);
+  --muted-foreground: rgba(229, 232, 240, 0.8);
+  --accent: #FFB677;
+  --accent-foreground: #020824;
+  --destructive: #EF4444;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #6B2FFB;
+  --chart-1: #6B2FFB;
+  --chart-2: #AE47FF;
+  --chart-3: #FFB677;
+  --chart-4: #E5E8F0;
+  --chart-5: #020824;
+  --sidebar: rgba(255, 255, 255, 0.06);
+  --sidebar-foreground: #E5E8F0;
+  --sidebar-primary: #6B2FFB;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: rgba(255, 255, 255, 0.1);
+  --sidebar-accent-foreground: #E5E8F0;
+  --sidebar-border: rgba(255, 255, 255, 0.12);
+  --sidebar-ring: #6B2FFB;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism effects */
+  .glass {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Gradient backgrounds */
+  .bg-primary-gradient {
+    background: linear-gradient(135deg, #6C2CF8, #AE47FF);
+  }
+
+  .bg-hero-gradient {
+    background: radial-gradient(ellipse at top, rgba(108, 44, 248, 0.3) 0%, rgba(2, 8, 36, 0.8) 50%, #020824 100%);
+  }
+
+  /* Button effects */
+  .btn-glow {
+    box-shadow: 0 0 20px rgba(107, 47, 251, 0.4), 0 0 40px rgba(107, 47, 251, 0.1);
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 0 30px rgba(107, 47, 251, 0.6), 0 0 60px rgba(107, 47, 251, 0.2);
+  }
+
+  /* Text gradients */
+  .text-gradient {
+    background: linear-gradient(135deg, #6C2CF8, #AE47FF, #FFB677);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animations */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow-pulse {
+    from { box-shadow: 0 0 20px rgba(107, 47, 251, 0.4); }
+    to { box-shadow: 0 0 30px rgba(107, 47, 251, 0.8), 0 0 40px rgba(107, 47, 251, 0.3); }
+  }
+}
